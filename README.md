@@ -29,7 +29,7 @@ will create a hash which looks like:
 require 'hcl'
 require 'json'
 
-parser = HCLParser.new("file_to_parse.hcl")
+parser = HCLParser.new(File.read("file_to_parse.hcl"))
 puts JSON.dump(parser)
 ```
 

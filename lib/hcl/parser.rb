@@ -6,7 +6,7 @@
 
 require 'racc/parser.rb'
 
-require './lexer'
+require_relative './lexer'
 
 class HCLParser < Racc::Parser
 
