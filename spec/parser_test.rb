@@ -6,7 +6,7 @@ class HCLParserTest
 
   describe "Tests for HCL Parser" do
     before do
-      @lexer = HCLLexer.new
+      @parser = HCLParser.new
     end
   end
 
