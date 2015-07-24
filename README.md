@@ -21,7 +21,7 @@ Ruby Parser for the Hashicorp Configuration Language
 
 will create a hash which looks like:
 
-`{"some_value" => {"other_value" => {"key" => "value"}`
+`{"some_value" => {"other_value" => {"key" => "value"}}}`
   
 ## Ruby-HCL Usage
 
