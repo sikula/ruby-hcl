@@ -15,7 +15,7 @@ Ruby Parser for the Hashicorp Configuration Language
 #### Examples
 ``` ruby
   some_value "other_value" {
-    key = value
+    key = "value"
   }
 ```
 
