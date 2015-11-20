@@ -109,7 +109,7 @@ rule
 end
 
 ---- header
-require './lexer'
+require_relative './lexer'
 
 ---- inner
   #//
