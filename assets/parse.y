@@ -126,7 +126,7 @@ require './lexer'
       h[a.first] =
         case a.last
         when Hash
-          (h[a.first] || {}).update(a.last)
+          deep_merge(h[a.first] || {}, a.last)
         else
           h[a.first] = a.last
         end
@@ -149,4 +149,19 @@ require './lexer'
 
   def next_token
     @lexer.shift
+  end
+
+  def deep_merge(hash1, hash2)
+    hash2.keys.each do |key|
+      value1 = hash1[key]
+      value2 = hash2[key]
+
+      if value1.is_a?(Hash) && value2.is_a?(Hash)
+        hash1[key] = deep_merge(value1, value2)
+      else
+        hash1[key] = value2
+      end
+    end
+
+    hash1
   end

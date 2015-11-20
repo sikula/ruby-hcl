@@ -15,7 +15,7 @@ macro
   COMMAEND              \]
   IDENTIFIER            [a-zA-Z_][a-zA-Z0-9_]*
   EQUAL                 \=
-  STRING                \".*\"
+  QUOTE                 \"
   MINUS                 \-
   LEFTBRACE             \{
   RIGHTBRACE            \}
@@ -33,7 +33,7 @@ rule
                 {BOOL}                    { [:BOOL,         to_boolean(text)]}
                 {NUMBER}                  { [:NUMBER,       text.to_i] }
                 {FLOAT}                   { [:FLOAT,        text.to_f] }
-                {STRING}                  { [:STRING,       dequote(text)] }
+                {QUOTE}                   { [:STRING,       consume_string(text)] }
 #-------------------------------------------------------------------------------
                 {LEFTBRACE}               { [:LEFTBRACE,    text]}
                 {RIGHTBRACE}              { [:RIGHTBRACE,   text]}
@@ -85,8 +85,25 @@ inner
   end
 
 
-  def dequote(input)
-    input.gsub(/\A["<]|[">]\z/, '').strip
+  def consume_string(input)
+    result = ''
+    nested = 0
+
+    begin
+      case(text = @ss.scan_until(%r{\"|\$\{|\}|\\}))
+      when %r{\$\{\z}
+        nested += 1
+      when %r{\}\z}
+        nested -= 1
+      when %r{\\\z}
+        result += text.chop + @ss.getch
+        next
+      end
+
+      result += text
+    end until nested == 0 && text =~ %r{\"\z}
+
+    result.chop
   end
 
 

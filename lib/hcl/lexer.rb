@@ -78,8 +78,8 @@ class HCLLexer
       when (text = @ss.scan(/\-?\d+\.\d+/))
          action { [:FLOAT,        text.to_f] }
 
-      when (text = @ss.scan(/\".*\"/))
-         action { [:STRING,       dequote(text)] }
+      when (text = @ss.scan(/\"/))
+         action { [:STRING,       consume_string(text)] }
 
       when (text = @ss.scan(/\{/))
          action { [:LEFTBRACE,    text]}
@@ -146,7 +146,21 @@ class HCLLexer
       end
     end
   end
-  def dequote(input)
-    input.gsub(/\A["<]|[">]\z/, '').strip
+  def consume_string(input)
+    result = ''
+    nested = 0
+    begin
+      case(text = @ss.scan_until(%r{\"|\$\{|\}|\\}))
+      when %r{\$\{\z}
+        nested += 1
+      when %r{\}\z}
+        nested -= 1
+      when %r{\\\z}
+        result += text.chop + @ss.getch
+        next
+      end
+      result += text
+    end until nested == 0 && text =~ %r{\"\z}
+    result.chop
   end
 end # class
