@@ -87,7 +87,7 @@ rule
        { result = [val[0]] }
   |  listitems COMMA listitem
        { result = val[0] << val[2] }
-  |  listitems COMMAEND
+  |  listitems COMMA
        { result = val[0] }
   ;
 

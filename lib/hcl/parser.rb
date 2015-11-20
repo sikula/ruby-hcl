@@ -53,32 +53,32 @@ module_eval(<<'...end parse.y/module_eval...', 'parse.y', 115)
 ##### State transition tables begin ###
 
 racc_action_table = [
-    20,    26,    25,    12,    26,    25,     5,    21,     6,    13,
-    33,    24,    36,    37,    -9,    30,    26,    25,     5,    -8,
-     6,    35,    33,    34,     5,     5,     6,     6,    16,    28,
-    17,    10,    13,    18 ]
+    20,    26,    25,    36,    26,    25,     5,    21,     6,    13,
+    33,    24,    35,    26,    25,    30,     5,    12,     6,    33,
+     5,    34,     6,    -9,    16,    28,    17,     5,    13,     6,
+    -8,    10,    18 ]
 
 racc_action_check = [
-    12,    12,    12,     7,    24,    24,     3,    12,     3,    12,
-    24,    12,    29,    29,     6,    24,    36,    36,    27,     5,
-    27,    29,    36,    27,    13,     0,    13,     0,     9,    13,
-     9,     1,     9,    10 ]
+    12,    12,    12,    29,    24,    24,     3,    12,     3,    12,
+    24,    12,    29,    36,    36,    24,    27,     7,    27,    36,
+    13,    27,    13,     6,     9,    13,     9,     0,     9,     0,
+     5,     1,    10 ]
 
 racc_action_pointer = [
-    18,    31,   nil,    -1,   nil,    11,     6,    -5,   nil,    21,
-    33,   nil,    -2,    17,   nil,   nil,   nil,   nil,   nil,   nil,
-   nil,   nil,   nil,   nil,     1,   nil,   nil,    11,   nil,     7,
-   nil,   nil,   nil,   nil,   nil,   nil,    13,   nil,   nil ]
+    20,    31,   nil,    -1,   nil,    22,    15,     9,   nil,    17,
+    32,   nil,    -2,    13,   nil,   nil,   nil,   nil,   nil,   nil,
+   nil,   nil,   nil,   nil,     1,   nil,   nil,     9,   nil,    -2,
+   nil,   nil,   nil,   nil,   nil,   nil,    10,   nil ]
 
 racc_action_default = [
     -2,   -29,    -1,    -3,    -4,   -18,   -19,   -29,   -15,   -29,
-   -29,    -5,   -29,   -29,   -16,   -17,   -18,   -19,    39,   -10,
+   -29,    -5,   -29,   -29,   -16,   -17,   -18,   -19,    38,   -10,
    -11,   -12,   -13,   -14,   -29,   -27,   -28,   -29,    -7,   -29,
-   -21,   -22,   -25,   -26,    -6,   -20,   -29,   -24,   -23 ]
+   -21,   -22,   -25,   -26,    -6,   -20,   -24,   -23 ]
 
 racc_goto_table = [
     11,     3,    14,    31,    19,    22,     2,    23,    15,    29,
-     1,   nil,   nil,   nil,    27,    38,   nil,   nil,   nil,   nil,
+     1,   nil,   nil,   nil,    27,    37,   nil,   nil,   nil,   nil,
    nil,   nil,   nil,   nil,    11 ]
 
 racc_goto_check = [
@@ -127,7 +127,7 @@ racc_reduce_table = [
 
 racc_reduce_n = 29
 
-racc_shift_n = 39
+racc_shift_n = 38
 
 racc_token_table = {
   false => 0,

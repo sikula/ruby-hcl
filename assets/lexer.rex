@@ -12,7 +12,6 @@ macro
   NUMBER                -?\d+
   FLOAT                 \-?\d+\.\d+
   COMMA                 \,
-  COMMAEND              \]
   IDENTIFIER            [a-zA-Z_][a-zA-Z0-9_]*
   EQUAL                 \=
   STRING                \".*\"
