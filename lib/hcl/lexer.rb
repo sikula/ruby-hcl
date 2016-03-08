@@ -96,7 +96,7 @@ class HCLLexer
       when (text = @ss.scan(/\,/))
          action { [:COMMA,        text]}
 
-      when (text = @ss.scan(/[a-zA-Z_][a-zA-Z0-9_]*/))
+      when (text = @ss.scan(/[a-zA-Z_][a-zA-Z0-9_\-\.]*/))
          action { [:IDENTIFIER,   text]}
 
       when (text = @ss.scan(/\=/))
