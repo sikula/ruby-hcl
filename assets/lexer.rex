@@ -12,7 +12,7 @@ macro
   NUMBER                -?\d+
   FLOAT                 \-?\d+\.\d+
   COMMA                 \,
-  IDENTIFIER            [a-zA-Z_][a-zA-Z0-9_]*
+  IDENTIFIER            [a-zA-Z_][a-zA-Z0-9_\-\.]*
   EQUAL                 \=
   QUOTE                 \"
   MINUS                 \-

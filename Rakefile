@@ -9,7 +9,7 @@ end
 
 desc "Generate Lexer"
 task :lexer do
- `rex  ./assets/lexer.rex -o ./lib/lexer.rb`
+ `rex  ./assets/lexer.rex -o ./lib/hcl/lexer.rb`
 end
 
 desc "Generate Parser"
